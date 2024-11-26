@@ -37,5 +37,4 @@ class SecondScreen : Fragment() {
         return view
     }
 
-
 }

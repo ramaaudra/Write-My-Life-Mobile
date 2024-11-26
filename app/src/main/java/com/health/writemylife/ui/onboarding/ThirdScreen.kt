@@ -1,6 +1,7 @@
 package com.health.writemylife.ui.onboarding
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.health.writemylife.R
+import com.health.writemylife.ui.home.HomeActivity
 
 class ThirdScreen : Fragment() {
     override fun onCreateView(
@@ -27,10 +29,15 @@ class ThirdScreen : Fragment() {
 
 
         finish.setOnClickListener {
+            // Menyimpan status onboarding selesai
             onBoardingIsFinished()
-            findNavController().navigate(R.id.action_onBoardingFragment_to_homeFragment)
 
+            // Navigasi ke HomeActivity
+            val intent = Intent(requireActivity(), HomeActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish() // Menutup activity onboarding
         }
+
 
         back.setOnClickListener {
             viewPager?.currentItem = 1
