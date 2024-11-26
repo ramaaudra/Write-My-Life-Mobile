@@ -9,6 +9,7 @@
     tools:context=".ui.onboarding.SecondScreen">
 
     <ImageView
+        android:contentDescription="@string/illustration"
         android:id="@+id/iv_onboarding2"
         android:layout_width="288dp"
         android:layout_height="335dp"
@@ -21,12 +22,13 @@
     <TextView
         android:id="@+id/tv_title_ob2"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Ceritakan Harimu"
+        android:text="@string/title_onboarding_2"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:fontFamily="@font/avenir_heavy"
         app:layout_constraintEnd_toEndOf="@+id/iv_onboarding2"
         app:layout_constraintStart_toStartOf="@+id/iv_onboarding2"
         app:layout_constraintTop_toBottomOf="@+id/iv_onboarding2" />
@@ -36,10 +38,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Ceritakan ke kami, karena\n kami cinta kamu "
+        android:text="@string/subtitle_onboarding_2"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:fontFamily="@font/avenir_roman"
         app:layout_constraintEnd_toEndOf="@+id/tv_title_ob2"
         app:layout_constraintStart_toStartOf="@+id/tv_title_ob2"
         app:layout_constraintTop_toBottomOf="@+id/tv_title_ob2" />
@@ -50,8 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:fontFamily="@font/avenir_medium"
         android:backgroundTint="@color/blue_primary"
-        android:text="Skip"
+        android:text="@string/skip"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +63,7 @@
 
     <ImageView
         android:id="@+id/iv_btn_backob2"
-        android:contentDescription="back"
+        android:contentDescription="@string/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
