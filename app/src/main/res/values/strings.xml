@@ -2,4 +2,14 @@
     <string name="app_name">Write My Life</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="illustration">illustration</string>
+    <string name="title_onboarding_1">Ceritakan Harimu</string>
+    <string name="subtitle_onboarding_1">Ceritakan ke kami, karena\n kami cinta kamu</string>
+    <string name="title_onboarding_2">Ceritakan Harimu</string>
+    <string name="subtitle_onboarding_2">Ceritakan ke kami, karena\n kami cinta kamu</string>
+    <string name="title_onboarding_3">Ceritakan Harimu</string>
+    <string name="subtitle_onboarding_3">Ceritakan ke kami, karena\n kami cinta kamu</string>
+    <string name="tv_button_ob3">Mulai Ceritamu</string>
+    <string name="back">back</string>
+    <string name="skip">Skip</string>
 </resources>
