@@ -11,7 +11,7 @@
     <ImageView
         android:contentDescription="@string/illustration"
         android:id="@+id/iv_onboarding2"
-        android:layout_width="288dp"
+        android:layout_width="320dp"
         android:layout_height="335dp"
         android:layout_marginTop="167dp"
         android:src="@drawable/o2"
