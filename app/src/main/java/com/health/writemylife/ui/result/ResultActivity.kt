@@ -1,32 +1,21 @@
-package com.health.writemylife.ui.home
+package com.health.writemylife.ui.result
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.health.writemylife.R
-import com.health.writemylife.databinding.ActivityHomeBinding
-import com.health.writemylife.ui.result.ResultActivity
 
-class HomeActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityHomeBinding
-
+class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_result)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-        }
-
-        binding.btnAnalyze.setOnClickListener {
-            startActivity(Intent(this, ResultActivity::class.java))
         }
     }
 }
