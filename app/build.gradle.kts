@@ -55,11 +55,17 @@ dependencies {
 
     //dot indicator onboarding
     implementation(libs.dotsindicator)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
+    //lottie anim
+    implementation (libs.lottie)
 
-    implementation ("com.airbnb.android:lottie:6.6.0")
+    //retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.androidx.lifecycle.runtime.ktx) //untuk lifecycleScope
 
 
 }
