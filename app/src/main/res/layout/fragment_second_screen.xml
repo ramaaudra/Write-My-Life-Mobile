@@ -35,14 +35,14 @@
 
     <TextView
         android:id="@+id/tv_subtitle_ob2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="269dp"
+        android:layout_height="54dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/avenir_roman"
         android:text="@string/subtitle_onboarding_2"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:fontFamily="@font/avenir_roman"
         app:layout_constraintEnd_toEndOf="@+id/tv_title_ob2"
         app:layout_constraintStart_toStartOf="@+id/tv_title_ob2"
         app:layout_constraintTop_toBottomOf="@+id/tv_title_ob2" />

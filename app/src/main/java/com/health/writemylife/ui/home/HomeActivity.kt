@@ -2,13 +2,18 @@ package com.health.writemylife.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.health.writemylife.R
+import androidx.lifecycle.lifecycleScope
 import com.health.writemylife.databinding.ActivityHomeBinding
+import com.health.writemylife.network.PredictionRequest
+import com.health.writemylife.network.RetrofitClient
+import com.health.writemylife.ui.result.PositiveResultActivity
 import com.health.writemylife.ui.result.ResultActivity
+import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
 
@@ -19,14 +24,44 @@ class HomeActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
+        // Handle button click
         binding.btnAnalyze.setOnClickListener {
-            startActivity(Intent(this, ResultActivity::class.java))
+            val userStory = binding.etStory.text.toString().trim()
+            if (userStory.isEmpty()) {
+                Toast.makeText(this, "Mohon isi cerita Anda terlebih dahulu", Toast.LENGTH_SHORT).show()
+            } else {
+                analyzeStory(userStory)
+            }
+        }
+    }
+
+    private fun analyzeStory(story: String) {
+        // Show progress bar
+        binding.loadingView.visibility = View.VISIBLE
+        binding.tvErrorMessage.visibility = View.GONE
+
+        lifecycleScope.launch {
+            try {
+                Log.d("HomeActivity", "Sending request to server")
+                val response = RetrofitClient.apiService.getPrediction(PredictionRequest(story))
+                Log.d("HomeActivity", "Received response: $response")
+
+                binding.loadingView.visibility = View.GONE
+
+
+                if (response.prediction.isNotEmpty() && response.prediction[0][0] > 0.1) {
+                    // Navigate to ResultActivity if prediction > 0.1
+                    startActivity(Intent(this@HomeActivity, ResultActivity::class.java))
+                } else {
+                    // Navigate to PositiveResultActivity if prediction <= 0.1
+                    startActivity(Intent(this@HomeActivity, PositiveResultActivity::class.java))
+                }
+            } catch (e: Exception) {
+                Log.e("HomeActivity", "Error analyzing story", e)
+                binding.loadingView.visibility = View.GONE
+                Toast.makeText(this@HomeActivity, "Terjadi kesalahan: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
