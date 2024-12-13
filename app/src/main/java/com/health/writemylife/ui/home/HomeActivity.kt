@@ -13,6 +13,7 @@ import com.health.writemylife.network.PredictionRequest
 import com.health.writemylife.network.RetrofitClient
 import com.health.writemylife.ui.result.PositiveResultActivity
 import com.health.writemylife.ui.result.ResultActivity
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
@@ -43,6 +44,8 @@ class HomeActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
+                delay(1000)
+
                 Log.d("HomeActivity", "Sending request to server")
                 val response = RetrofitClient.apiService.getPrediction(PredictionRequest(story))
                 Log.d("HomeActivity", "Received response: $response")
